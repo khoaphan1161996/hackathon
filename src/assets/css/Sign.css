@@ -1,0 +1,22 @@
+.Sign button {
+    background-color: #e86bcf; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 20px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 10px;
+    outline: none;
+}
+
+.Sign {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 40px;
+}
+
+.SignIn {
+    margin-left: 10px;
+}
