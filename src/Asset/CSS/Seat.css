@@ -1,0 +1,17 @@
+.choosing {
+    color:white;
+    background-color:brown;
+    border: brown solid thin;
+}
+.choosing-u{
+    background-color:rgb(94, 231, 255);
+    border: rgb(94, 231, 255) solid thin;
+}
+.none{
+    background-color:white;
+    border: green solid thin
+}
+.choosed {
+    pointer-events: none;
+    cursor: not-allowed;
+}
