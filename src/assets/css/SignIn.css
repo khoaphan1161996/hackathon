@@ -5,11 +5,7 @@
     justify-content: center;
     margin: 0 auto;
     background: white;
-    height:80%
-}
-
-h1  {
-  color:  red
+    height:fit-content
 }
 
 h1,p {

@@ -7,6 +7,7 @@
     cursor: pointer; /* Mouse pointer on hover */
     border-radius: 10px;
     outline: none;
+    width: 10%;
 }
 
 .Sign {

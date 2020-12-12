@@ -14,15 +14,15 @@ export function Header() {
                 </div>
             </div>
             <div className="dropdown">
-                <button className="dropbtn">Phim<i className="fa fa-caret-down"></i></button>
+                <button className="dropbtn">Film<i className="fa fa-caret-down"></i></button>
                 <div className="dropdown-content">
                     <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
                     <a href="#">Link 3</a>
                 </div>
             </div>
-            <a href="#">Đặt vé</a>
-            <a href="#">Hỗ trợ</a>
+            <a href="#">Book</a>
+            <a href="#">Support</a>
         </div>
     )
 }
