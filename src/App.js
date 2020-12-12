@@ -10,6 +10,41 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      film:[{
+        img:"https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
+        name:"Name",
+        buy:"Mua vé"
+      },
+      {
+        img:"https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
+        name:"Name",
+        buy:"Mua vé"
+      },
+      {
+        img:"https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
+        name:"Name",
+        buy:"Mua vé"
+      },
+      {
+        img:"https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
+        name:"Name",
+        buy:"Mua vé"
+      },
+      {
+        img:"https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
+        name:"Name",
+        buy:"Mua vé"
+      },
+      {
+        img:"https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
+        name:"Name",
+        buy:"Mua vé"
+      },
+      {
+        img:"https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
+        name:"Name",
+        buy:"Mua vé"
+      },],
       display: {
         SignUp: false,
         SignIn: false
@@ -34,8 +69,8 @@ class App extends React.Component {
         <Sign onClickSignUp={this.onClickSignUp} onClickSignIn={this.onClickSignIn} />
         {this.state.display.SignUp && <SignUp />}
         {this.state.display.SignIn && <SignIn />}
-        <div className="Show">
-          <Show />
+        <div className="Shows">
+          {this.state.film.map((film,ind)=><Show {...film} key={ind} />)}
         </div>
       </div>
     );

@@ -3,3 +3,27 @@
     height: 20rem;
 }
 
+.name {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.Show {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-items: center;
+}
+
+.btnbuy{
+    font-size: 20px;
+    width: fit-content;
+    padding: 5px;
+    border: 1px lightblue solid;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: lightseagreen;
+    text-decoration: none;
+    color: white;
+}

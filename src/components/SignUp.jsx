@@ -1,5 +1,5 @@
 import '../assets/css/SignUp.css'
-
+// import {Button} from  '@material-ui/core'
 export function SignUp(props) {
     return (
         <div className="container">
@@ -12,7 +12,10 @@ export function SignUp(props) {
             <input type="text" placeholder="Enter Email" name="email" ></input>
             <label for="pass"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="pass" ></input>
-            <button class="signupbtn">Sign Up</button>
+            <button class="signupbtn">SignUp</button>
+            {/* <Button class="signupbtn" variant="contained" color="primary">
+            Primary
+            </Button> */}
         </div>
     )
 }
