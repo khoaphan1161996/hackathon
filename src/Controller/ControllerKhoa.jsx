@@ -48,7 +48,6 @@ export function Signupfunc(email, password, uname) {
   return  firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((user) => {
             let uid = user.user.uid
-           
             return uid
         })
         .then((uid)=>addData(uid,uname))
