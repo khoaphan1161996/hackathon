@@ -45,27 +45,31 @@ function readData(uid) {
 
 export function Signupfunc(email, password, uname) {
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+  return  firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((user) => {
             let uid = user.user.uid
-            return addData(uid, uname)
+           
+            return uid
         })
+        .then((uid)=>addData(uid,uname))
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             // ..
             console.log(errorCode)
+            return errorCode
         });
 
 }
 function addData(uid, uname) {
-    db.collection("users").doc(`${uid}`).set({
+   db.collection("users").doc(`${uid}`).set({
         uname: uname,
     })
         .then(function () {
             console.log("Document successfully written!");
+            return 123
         })
         .catch(function (error) {
             console.error("Error writing document: ", error);
-        });
+        })
 }
