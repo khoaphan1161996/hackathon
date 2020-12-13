@@ -3,7 +3,7 @@ import '../assets/css/Header.css'
 export function Header() {
     return (
         <div className="navbar">
-            <img className="cgvlogo" src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo.png" href="#home"/>
+            <img className="cgvlogo" src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo.png" href="#home" alt="logo"/>
             <a href="#home">Home</a>
             <div className="dropdown">
                 <button className="dropbtn">News<i className="fa fa-caret-down"></i></button>

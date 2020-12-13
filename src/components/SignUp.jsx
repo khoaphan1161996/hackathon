@@ -6,13 +6,13 @@ export function SignUp(props) {
             <h1>Sign Up</h1>
             <p>Please fill in this form to create an account</p>
             <hr />
-            <label for="name"><b>UserName</b></label>
-            <input type="text" placeholder="Enter User" name="name" ></input>
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" ></input>
-            <label for="pass"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="pass" ></input>
-            <button class="signupbtn">SignUp</button>
+            <label htmlFor="name"><b>UserName</b></label>
+            <input type="text" placeholder="Enter User" name="name" onChange={props.onChangeUsername}></input>
+            <label htmlFor="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" onChange={props.onChangeEmail} ></input>
+            <label htmlFor="pass"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pass" onChange={props.onChangePass} ></input>
+            <button className="signupbtn" onClick={props.onClickSign}>SignUp</button>
             {/* <Button class="signupbtn" variant="contained" color="primary">
             Primary
             </Button> */}
