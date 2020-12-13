@@ -13,43 +13,43 @@ class App extends React.Component {
     this.state = {
       film: [{
         img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
+        name: "Kimetsu yaiba movie",
         buy: "Mua vé"
       },
       {
         img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
+        name: "Kimetsu yaiba movie",
         buy: "Mua vé"
       },
       {
         img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
+        name: "Kimetsu yaiba movie",
         buy: "Mua vé"
       },
       {
         img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
+        name: "Kimetsu yaiba movie",
         buy: "Mua vé"
       },
       {
         img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
+        name: "Kimetsu yaiba movie",
         buy: "Mua vé"
       },
       {
         img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
+        name: "Kimetsu yaiba movie",
         buy: "Mua vé"
       },
       {
         img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
+        name: "Kimetsu yaiba movie",
         buy: "Mua vé"
       },],
       display: {
         SignUp: false,
         SignIn: false,
-        Home: false
+        Home: true
       }
     }
     this.handleonChange = this.handleonChange.bind(this)

@@ -6,7 +6,9 @@
 .name {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 20px;
+    font-size: 22px;
+    color:aliceblue;
+    font-weight: bolder;
 }
 
 .Show {

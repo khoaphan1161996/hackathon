@@ -7,11 +7,11 @@
 body {
   width: 100vw;
   height: 100vh;
-  /* background-image: url('https://www.listofdownload.com/wp-content/uploads/2017/12/Jumanji-Welcome-to-the-Jungle-Movie-Poster-4K-HD-Wallpaper-3840x2160.jpg');
+  background-image: url('https://www.listofdownload.com/wp-content/uploads/2017/12/Jumanji-Welcome-to-the-Jungle-Movie-Poster-4K-HD-Wallpaper-3840x2160.jpg');
   background-repeat: no-repeat;
   background-origin: content-box;
   background-size: cover;
-  overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 #root {
@@ -29,5 +29,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  height: 90%;
+  height: 80%;
+  overflow: scroll ;
+  overflow-x: hidden;
 }
