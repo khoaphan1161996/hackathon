@@ -6,46 +6,14 @@ import { Show } from './Components/Show'
 import { SignUp } from './Components/SignUp'
 import { SignIn } from './Components/SignIn'
 import { Signupfunc, Signinfunc } from './Controller/ControllerKhoa'
+import {films} from '../src/Res/datagia'
+console.log(films)
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      film: [{
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Kimetsu yaiba movie",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Kimetsu yaiba movie",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Kimetsu yaiba movie",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Kimetsu yaiba movie",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Kimetsu yaiba movie",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Kimetsu yaiba movie",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Kimetsu yaiba movie",
-        buy: "Mua vé"
-      },],
+      film: films,
       display: {
         SignUp: false,
         SignIn: false,
@@ -80,7 +48,8 @@ class App extends React.Component {
   onClickSignIn2() {
     const email = this.state.Email
     const password = this.state.Pass
-    Signinfunc(email, password).then(() => this.setState({ display: { Home: true } }))
+    Signinfunc(email, password).then(() => 
+    this.setState({ display: { Home: true }},))
   }
   render() {
     return (
