@@ -1,4 +1,4 @@
-import '../Asset/CSS/Seat.css'
+import '../../Asset/CSS/Seat.css'
 
 export function Seat(props) {
     return (

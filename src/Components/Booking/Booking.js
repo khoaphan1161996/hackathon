@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Asset/CSS/Booking.css'
+import '../../Asset/CSS/Booking.css'
 import { Containseat } from './Containseat'
 import { Tinhtien } from './Tinhtien'
 import { user } from './datafake'

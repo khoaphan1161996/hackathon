@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Asset/CSS/Containseat.css'
+import '../../Asset/CSS/Containseat.css'
 import { Seatline } from './Seatline'
 import { data } from './datafake'
 
