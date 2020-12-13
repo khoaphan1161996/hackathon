@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react'
-import { Header } from './components/Header'
-import { Sign } from './components/Sign'
-import { Show } from './components/Show'
-import { SignUp } from './components/SignUp'
-import { SignIn } from './components/SignIn'
+import { Header } from './Components/Header'
+import { Sign } from './Components/Sign'
+import { Show } from './Components/Show'
+import { SignUp } from './Components/SignUp'
+import { SignIn } from './Components/SignIn'
 import { Signupfunc, Signinfunc } from './Controller/ControllerKhoa'
 
 class App extends React.Component {
@@ -49,7 +49,7 @@ class App extends React.Component {
       display: {
         SignUp: false,
         SignIn: false,
-        Home: true
+        Home: false
       }
     }
     this.handleonChange = this.handleonChange.bind(this)
@@ -73,7 +73,8 @@ class App extends React.Component {
     const email = this.state.Email
     const password = this.state.Pass
     const uname = this.state.Username
-    Signupfunc(email, password, uname).then((a) => a === undefined ? this.setState({ display: { SignIn: true } }) : console.log(a))
+    Signupfunc(email, password, uname)
+    .then((a) => a === undefined ? this.setState({ display: { SignIn: true } }) : console.log(a))
 
   }
   onClickSignIn2() {

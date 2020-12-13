@@ -27,20 +27,20 @@ export function Signinfunc(email, password) {
     //     return readData(uid)
     // })
 }
-function readData(uid) {
-    let docRef = db.collection("users").doc(uid);
-    return docRef.get().then(function (doc) {
-        if (doc.exists) {
-            return doc.data()
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
+// function readData(uid) {
+//     let docRef = db.collection("users").doc(uid);
+//     return docRef.get().then(function (doc) {
+//         if (doc.exists) {
+//             return doc.data()
+//         } else {
+//             // doc.data() will be undefined in this case
+//             console.log("No such document!");
+//         }
+//     }).catch(function (error) {
+//         console.log("Error getting document:", error);
+//     });
 
-}
+// }
 
 
 export function Signupfunc(email, password, uname) {
@@ -53,7 +53,6 @@ export function Signupfunc(email, password, uname) {
         .then((uid)=>addData(uid,uname))
         .catch((error) => {
             var errorCode = error.code;
-            var errorMessage = error.message;
             // ..
             console.log(errorCode)
             return errorCode
@@ -66,7 +65,6 @@ function addData(uid, uname) {
     })
         .then(function () {
             console.log("Document successfully written!");
-            return 123
         })
         .catch(function (error) {
             console.error("Error writing document: ", error);

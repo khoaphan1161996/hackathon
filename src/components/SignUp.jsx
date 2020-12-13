@@ -7,7 +7,7 @@ export function SignUp(props) {
             <p>Please fill in this form to create an account</p>
             <hr />
             <label htmlFor="name"><b>UserName</b></label>
-            <input type="text" placeholder="Enter User" name="name" onChange={props.onChangeUsername}></input>
+            <input type="text" placeholder="Enter User" name="name" onChange={props.onChangeUsername} ></input>
             <label htmlFor="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" onChange={props.onChangeEmail} ></input>
             <label htmlFor="pass"><b>Password</b></label>
