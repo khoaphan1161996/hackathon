@@ -18,39 +18,40 @@ export function Signinfunc(email, password) {
     return firebase.auth().signInWithEmailAndPassword(email, password)
         .then((user) => {
             let uid = user.user.uid
+            console.log(uid)
+            console.log("Signin")
             return uid
         })
-        .then(function () {
-            console.log("Signin");
-        })
-    // .then((uid) => {
-    //     return readData(uid)
-    // })
+    .then((uid) => {
+        return readData(uid)
+    })
 }
-// function readData(uid) {
-//     let docRef = db.collection("users").doc(uid);
-//     return docRef.get().then(function (doc) {
-//         if (doc.exists) {
-//             return doc.data()
-//         } else {
-//             // doc.data() will be undefined in this case
-//             console.log("No such document!");
-//         }
-//     }).catch(function (error) {
-//         console.log("Error getting document:", error);
-//     });
+function readData(uid) {
+    let docRef = db.collection("users").doc(uid);
+    return docRef.get().then(function (doc) {
+    
+        if (doc.exists) {
+            console.log(doc.data())
+            return doc.data()
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
 
-// }
+}
 
 
 export function Signupfunc(email, password, uname) {
 
-  return  firebase.auth().createUserWithEmailAndPassword(email, password)
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((user) => {
             let uid = user.user.uid
             return uid
         })
-        .then((uid)=>addData(uid,uname))
+        .then((uid) => addData(uid, uname))
         .catch((error) => {
             var errorCode = error.code;
             // ..
@@ -60,8 +61,9 @@ export function Signupfunc(email, password, uname) {
 
 }
 function addData(uid, uname) {
-   db.collection("users").doc(`${uid}`).set({
+    db.collection("users").doc(`${uid}`).set({
         uname: uname,
+        choosing: { tenphim: "", seat: [] }
     })
         .then(function () {
             console.log("Document successfully written!");

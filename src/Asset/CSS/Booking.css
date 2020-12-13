@@ -1,0 +1,46 @@
+.Booking {
+    display:flex;
+    flex-flow:column wrap;
+    align-items: center;
+}
+
+.Screen {
+    background-color:rgb(255, 225, 168);
+    width: 70%;
+    text-align:center;
+    margin-bottom:50px ;
+}
+
+
+/* -------------------------------------------------------- */
+
+.Tinhtienphim {
+    color:white;
+    background-color: black;
+    display: flex;
+    flex-flow:wrap row;
+    justify-content: space-between;
+    align-items: center;
+    padding:8pt;
+    margin-top:80px;
+    width: 60%;
+}
+
+.Tinhtienphim .Thongtin {
+    margin:0px 30px
+}
+.Tinhtienphim .Tinhtien {
+    margin:0px 30px
+}
+.Tinhtienphim button {
+    font-size:20pt;
+    height: 120px;
+    width: 150px;
+    border-radius: 10%;
+    border:thin black solid
+}
+
+.Tinhtienphim img {
+    width: 120px;
+    height: 150px;
+}

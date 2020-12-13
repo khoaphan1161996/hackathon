@@ -6,6 +6,7 @@ import { Show } from './Components/Show'
 import { SignUp } from './Components/SignUp'
 import { SignIn } from './Components/SignIn'
 import { Signupfunc, Signinfunc } from './Controller/ControllerKhoa'
+import { Booking } from './Components/Booking/Booking'
 
 class App extends React.Component {
   constructor(props) {
@@ -49,7 +50,8 @@ class App extends React.Component {
       display: {
         SignUp: false,
         SignIn: false,
-        Home: false
+        Home: false,
+        Booking:true,
       }
     }
     this.handleonChange = this.handleonChange.bind(this)
@@ -58,9 +60,12 @@ class App extends React.Component {
     this.onClickSignUp2 = this.onClickSignUp2.bind(this)
     this.onClickSignIn2 = this.onClickSignIn2.bind(this)
   }
+  componentDidMount(){
+    console.log(this.state.display.Booking)
+  }
   handleonChange(e, state) {
     this.setState({ [`${state}`]: e.target.value })
-    console.log(this.state)
+    // console.log(this.state)
   }
   onClickSignUp() {
     this.setState({ display: { SignUp: true } })
@@ -74,13 +79,13 @@ class App extends React.Component {
     const password = this.state.Pass
     const uname = this.state.Username
     Signupfunc(email, password, uname)
-    .then((a) => a === undefined ? this.setState({ display: { SignIn: true } }) : console.log(a))
+      .then((a) => a === undefined ? this.setState({ display: { SignIn: true } }) : console.log(a))
 
   }
   onClickSignIn2() {
     const email = this.state.Email
     const password = this.state.Pass
-    Signinfunc(email, password).then(() => this.setState({ display: { Home: true } }))
+    Signinfunc(email, password).then((data) => this.setState({ display: { Home: true },userdata:data }))
   }
   render() {
     return (
@@ -91,7 +96,9 @@ class App extends React.Component {
         {this.state.display.SignIn && <SignIn onChangeEmail={(e) => this.handleonChange(e, "Email")} onChangePass={(e) => this.handleonChange(e, "Pass")} onClick={this.onClickSignIn2} />}
         {this.state.display.Home && <div className="Shows">
           {this.state.film.map((film, ind) => <Show {...film} key={ind} />)}
+        
         </div>}
+        {/* {this.state.display.Booking && <Booking/>} */}
       </div>
     );
   }
