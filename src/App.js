@@ -1,12 +1,12 @@
 import './App.css';
 import React from 'react'
-import { Header } from './components/Header'
-import { Sign } from './components/Sign'
-import { Show } from './components/Show'
-import { SignUp } from './components/SignUp'
-import { SignIn } from './components/SignIn'
+import { Header } from './Components/Header'
+import { Sign } from './Components/Sign'
+import { Show } from './Components/Show'
+import { SignUp } from './Components/SignUp'
+import { SignIn } from './Components/SignIn'
 import { Signupfunc, Signinfunc,Updatedatafake,Readphim } from './Controller/ControllerKhoa'
-import { Booking } from './components/Booking/Booking.js'
+import { Booking } from './Components/Booking/Booking'
 import { films } from '../src/Res/datagia'
 console.log(films)
 

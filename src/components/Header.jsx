@@ -4,24 +4,15 @@ export function Header() {
     return (
         <div className="navbar">
             <img className="cgvlogo" src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo.png" href="#home" alt="logo"/>
-            <a href="#home">Home</a>
+            <a href="https://www.cgv.vn/default/">Home</a>
+            <a href="https://www.cgv.vn/default/newsoffer">News</a>
             <div className="dropdown">
-                <button className="dropbtn">News<i className="fa fa-caret-down"></i></button>
+                <button className="dropbtn">Films<i className="fa fa-caret-down"></i></button>
                 <div className="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a href="https://www.cgv.vn/default/movies/now-showing.html">Now-Showing</a>
+                    <a href="https://www.cgv.vn/default/movies/coming-soon-1.html">Coming-Soon</a>
                 </div>
             </div>
-            <div className="dropdown">
-                <button className="dropbtn">Film<i className="fa fa-caret-down"></i></button>
-                <div className="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-            <a href="#">Book</a>
             <a href="#">Support</a>
         </div>
     )

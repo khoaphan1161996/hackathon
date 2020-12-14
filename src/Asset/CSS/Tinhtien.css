@@ -1,0 +1,22 @@
+.Tinhtienphim {
+    width: 50%;
+
+}
+
+.Tinhtienphim > img {
+    margin: 0 auto;
+    width: 40%;
+}
+
+.Tinhtienphim > button {
+    margin: 0 auto;
+    width: 20%;
+    height: 45px;
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 10px;
+    background-color: red;
+    color: #ffffff;
+}

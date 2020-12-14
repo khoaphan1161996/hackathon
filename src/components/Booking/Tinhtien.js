@@ -1,3 +1,4 @@
+import '../../Asset/CSS/Tinhtien.css'
 
 export function Tinhtien(props) {
     return (
