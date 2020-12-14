@@ -22,14 +22,14 @@ export function Signinfunc(email, password) {
             console.log("Signin")
             return uid
         })
-    .then((uid) => {
-        return readData(uid)
-    })
+        .then((uid) => {
+            return readData(uid)
+        })
 }
 function readData(uid) {
     let docRef = db.collection("users").doc(uid);
     return docRef.get().then(function (doc) {
-    
+
         if (doc.exists) {
             console.log(doc.data())
             return doc.data()
@@ -71,4 +71,53 @@ function addData(uid, uname) {
         .catch(function (error) {
             console.error("Error writing document: ", error);
         })
+}
+
+export function Updatedatafake() {
+    let todoref = db.collection("Dataphim").doc(`123`);
+    return todoref.update({
+        ava: "https://galaxycine.vn/media/2020/11/24/450-mom_1606210227972.jpg",
+        name: "DORAEMON: NOBITA'S NEW DINOSAUR",
+        time: "110 minute",
+        point: 8.9,
+        seats: {
+            line1: [{ seat: "A1", status: "choosed" }, { seat: "A2", status: "none" }, { seat: "A3", status: "none" }, { seat: "A4", status: "choosing" }, { seat: "A5", status: "none" }, { seat: "A6", status: "none" }, { seat: "A7", status: "none" }],
+            line2: [{ seat: "A1", status: "choosed" }, { seat: "A2", status: "none" }, { seat: "A3", status: "none" }, { seat: "A4", status: "choosing" }, { seat: "A5", status: "none" }, { seat: "A6", status: "none" }, { seat: "A7", status: "none" }],
+            line3: [{ seat: "A1", status: "choosed" }, { seat: "A2", status: "none" }, { seat: "A3", status: "none" }, { seat: "A4", status: "choosing" }, { seat: "A5", status: "none" }, { seat: "A6", status: "none" }, { seat: "A7", status: "none" }],
+        }
+    })
+        .then(function () {
+            console.log("Document successfully updated!");
+        })
+        .catch(function (error) {
+            console.error("Error updating document: ", error);
+        });
+}
+
+export function Readphim(res,Callback) {
+    //    function subscribeConversation(conversationId, callback) 
+    db.collection("Dataphim")
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                // doc.data() is never undefined for query doc snapshots
+                res.push(doc.data());
+            });
+        }).then(()=>Callback(res))
+        .catch(function (error) {
+            console.log("Error getting documents: ", error);
+        });
+}
+
+export function Readseats (callback){
+    db.collection("Dataphim")
+    .doc("123")
+    // .where("name", "==", tenphim)
+    .onSnapshot(function(doc) {
+        // snapshot.docChanges().forEach(function(change) {
+           
+            console.log(doc.data())
+            callback(doc.data())
+        });
+    
 }

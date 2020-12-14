@@ -3,13 +3,23 @@ export const films = [
         ava: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
         name: "DEMON SLAYER THE MOVIE: MUGEN TRAIN",
         time: "117 minute",
-        point: 9.2
+        point: 9.2,
+        seats: {
+            line1:[{seat:"A1",status:"choosed"},{seat:"A2",status:"none"},{seat:"A3",status:"none"},{seat:"A4",status:"choosing"},{seat:"A5",status:"none"},{seat:"A6",status:"none"},{seat:"A7",status:"none"}],
+            line2:[{seat:"A1",status:"choosed"},{seat:"A2",status:"none"},{seat:"A3",status:"none"},{seat:"A4",status:"choosing"},{seat:"A5",status:"none"},{seat:"A6",status:"none"},{seat:"A7",status:"none"}],
+            line3:[{seat:"A1",status:"choosed"},{seat:"A2",status:"none"},{seat:"A3",status:"none"},{seat:"A4",status:"choosing"},{seat:"A5",status:"none"},{seat:"A6",status:"none"},{seat:"A7",status:"none"}],
+        }
     },
     {
         ava: "https://galaxycine.vn/media/2020/11/24/450-mom_1606210227972.jpg",
         name: "DORAEMON: NOBITA'S NEW DINOSAUR",
         time: "110 minute",
-        point: 8.9
+        point: 8.9,
+        seats: {
+            line1:[{seat:"A1",status:"choosed"},{seat:"A2",status:"none"},{seat:"A3",status:"none"},{seat:"A4",status:"choosing"},{seat:"A5",status:"none"},{seat:"A6",status:"none"},{seat:"A7",status:"none"}],
+            line2:[{seat:"A1",status:"choosed"},{seat:"A2",status:"none"},{seat:"A3",status:"none"},{seat:"A4",status:"choosing"},{seat:"A5",status:"none"},{seat:"A6",status:"none"},{seat:"A7",status:"none"}],
+            line3:[{seat:"A1",status:"choosed"},{seat:"A2",status:"none"},{seat:"A3",status:"none"},{seat:"A4",status:"choosing"},{seat:"A5",status:"none"},{seat:"A6",status:"none"},{seat:"A7",status:"none"}],
+        }
     },
     {
         ava: "https://galaxycine.vn/media/2020/11/26/toiacthinhlang450x300_1606379922602.png",

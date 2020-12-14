@@ -1,25 +1,29 @@
 import React from 'react'
 import '../../Asset/CSS/Containseat.css'
 import { Seatline } from './Seatline'
-import { data } from './datafake'
+// import { data2 } from './datafake'
+import { Readseats } from '../../Controller/ControllerKhoa'
 
 
 export class Containseat extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            seats: data
+            seats: props.phimseats
         }
     }
-    componentDidMount() {
-        console.log(this.state.seats)
+    componentDidUpdate(prevState) {
+        //   if(this.state.seats!==prevState.seats){
+        Readseats((data) => { this.setState({ seats: data.seats }); console.log(this.state.seats) })
+        //   }
     }
     render() {
+
         return (
             <div className="Ghe">
-                {this.state.seats.map((x, index) => {
+                {Object.keys(this.state.seats).map((x, index) => {
                     return (
-                        <Seatline key={index} line={index} seats={x} />
+                        <Seatline key={index} line={index} seats={this.state.seats[x]} />
                     )
                 })}
             </div>
