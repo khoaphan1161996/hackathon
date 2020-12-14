@@ -62,6 +62,7 @@ export function Signupfunc(email, password, uname) {
 }
 function addData(uid, uname) {
     db.collection("users").doc(`${uid}`).set({
+        uid:uid,
         uname: uname,
         choosing: { tenphim: "", seat: [] }
     })
@@ -94,7 +95,7 @@ export function Updatedatafake() {
         });
 }
 
-export function Readphim(res,Callback) {
+export function Readphim(res,res2,Callback) {
     //    function subscribeConversation(conversationId, callback) 
     db.collection("Dataphim")
         .get()
@@ -102,22 +103,54 @@ export function Readphim(res,Callback) {
             querySnapshot.forEach(function (doc) {
                 // doc.data() is never undefined for query doc snapshots
                 res.push(doc.data());
+                res2.push(doc.id)
+                console.log(doc.id)
             });
-        }).then(()=>Callback(res))
+        }).then(()=>Callback(res,res2))
         .catch(function (error) {
             console.log("Error getting documents: ", error);
         });
 }
 
-export function Readseats (callback){
+
+export function Readseats (idphim,callback){
     db.collection("Dataphim")
-    .doc("123")
+    .doc(idphim)
     // .where("name", "==", tenphim)
     .onSnapshot(function(doc) {
         // snapshot.docChanges().forEach(function(change) {
            
-            console.log(doc.data())
+            // console.log(doc.data())
             callback(doc.data())
         });
     
+}
+
+//---------------------------------------------------------------------------------
+export function Changestatus(idphim,data){
+    let updatephim = db.collection("Dataphim").doc(`${idphim}`);
+    console.log(idphim,"and",data)
+    return updatephim.update({
+        seats: data})
+        .then(function (data) {
+            console.log("Document successfully updated!");
+        })
+        .catch(function (error) {
+            console.error("Error updating document: ", error);
+        });
+
+}
+
+//-----------------------USER UPDATE ----------------------------------------------
+export function ChangestatusUser (iduser,data){
+    let updatephim = db.collection("users").doc(`${iduser}`);
+    console.log(iduser,"and",data)
+    return updatephim.update({
+        choosing: data})
+        .then(function (data) {
+            console.log("Document successfully updated!");
+        })
+        .catch(function (error) {
+            console.error("Error updating document: ", error);
+        });
 }
