@@ -1,12 +1,12 @@
 import './App.css';
 import React from 'react'
-import { Header } from './Components/Header'
-import { Sign } from './Components/Sign'
-import { Show } from './Components/Show'
-import { SignUp } from './Components/SignUp'
-import { SignIn } from './Components/SignIn'
+import { Header } from './components/Header'
+import { Sign } from './components/Sign'
+import { Show } from './components/Show'
+import { SignUp } from './components/SignUp'
+import { SignIn } from './components/SignIn'
 import { Signupfunc, Signinfunc,Updatedatafake,Readphim } from './Controller/ControllerKhoa'
-import { Booking } from './Components/Booking/Booking'
+import { Booking } from './components/Booking/Booking.js'
 import { films } from '../src/Res/datagia'
 console.log(films)
 
@@ -30,8 +30,10 @@ class App extends React.Component {
   }
   componentDidMount() {
     let films=[]
+    let id=[]
     // Updatedatafake()
-    Readphim(films,()=>{this.setState({film:films})})
+    Readphim(films,id,()=>{this.setState({film:films,idfilms:id})})
+   
   }
   handleonChange(e, state) {
     this.setState({ [`${state}`]: e.target.value })
@@ -60,8 +62,7 @@ class App extends React.Component {
   onClickBook(index) {
 
     this.setState({ display: { Booking: true },indexphim: index })
-    console.log(index)
-  }
+      }
   render() {
     return (
       <div className="App">
@@ -73,7 +74,7 @@ class App extends React.Component {
           {this.state.film.map((film, ind) => <Show {...film} key={ind} onClickBook={()=>this.onClickBook(ind)} />)}
 
         </div>}
-        {this.state.display.Booking && <Booking dataphim={this.state.film[this.state.indexphim]} />}
+        {this.state.display.Booking && <Booking user={this.state.userdata}idphim={this.state.idfilms[this.state.indexphim]} dataphim={this.state.film[this.state.indexphim]} />}
       </div>
     );
   }

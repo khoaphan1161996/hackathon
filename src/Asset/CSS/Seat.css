@@ -2,6 +2,8 @@
     color:white;
     background-color:brown;
     border: brown solid thin;
+    pointer-events: none;
+    cursor: not-allowed;
 }
 .choosing-u{
     background-color:rgb(94, 231, 255);
