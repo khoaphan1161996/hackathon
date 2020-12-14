@@ -5,8 +5,16 @@
 
 .name {
     margin-top: 5px;
+    font-size: 18px;
+    color:aliceblue;
+    font-weight: bolder;
+}
+
+.time{
     margin-bottom: 5px;
-    font-size: 20px;
+    font-size: 16px;
+    color:aliceblue;
+    font-weight: bolder;
 }
 
 .Show {
@@ -17,7 +25,7 @@
 }
 
 .btnbuy{
-    font-size: 20px;
+    font-size: 14px;
     width: fit-content;
     padding: 5px;
     border: 1px lightblue solid;

@@ -7,46 +7,14 @@ import { SignUp } from './Components/SignUp'
 import { SignIn } from './Components/SignIn'
 import { Signupfunc, Signinfunc } from './Controller/ControllerKhoa'
 import { Booking } from './Components/Booking/Booking'
+import {films} from '../src/Res/datagia'
+console.log(films)
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      film: [{
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
-        buy: "Mua vé"
-      },
-      {
-        img: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
-        name: "Name",
-        buy: "Mua vé"
-      },],
+      film: films,
       display: {
         SignUp: false,
         SignIn: false,
