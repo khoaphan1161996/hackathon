@@ -27,7 +27,7 @@ export function Signinfunc(email, password) {
         })
         .catch((error) => {
             var errorCode = error.code;
-            if(error.code="auth/invalid-email"){return " Invailid email. Please check your email"}
+            if(error.code="auth/invalid-email"){return " Invalid email, please enter and exits mail"}
             else if(error.code="auth/user-not-found"){return ` Can't find this email`} 
             else if(error.code="auth/wrong-password"){return ` Your email or password is wrong`}
            
@@ -61,8 +61,13 @@ export function Signupfunc(email, password, uname) {
         .then((uid) => addData(uid, uname))
         .catch((error) => {
             var errorCode = error.code;
-            // ..
-            console.log(errorCode)
+            errorCode = errorCode.replace("auth/", "");
+            if(errorCode=="invalid-email"){
+                errorCode = "invalid-email, must include @ gmail.com"
+            }
+            else if(errorCode=="weak-password"){
+                errorCode = "weak-password, please over 6 characters    "
+            }
             return errorCode
         });
 
@@ -195,4 +200,30 @@ export function Signout (){
       }).catch(function(error) {
           console.log("An error happened.")
       });
+}
+
+export function UsercurrentHello() {
+    let user = firebase.auth().currentUser;
+ console.log(user)
+if (user) {
+  return user.uid
+}
+}
+
+export function readDataname(uid,callback) {
+    let docRef = db.collection("users").doc(uid);
+    return docRef.get().then(function (doc) {
+
+        if (doc.exists) {
+            console.log(doc.data())
+            return doc.data().uname
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).then((uid)=>callback(uid))
+    .catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+
 }
