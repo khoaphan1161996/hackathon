@@ -8,7 +8,7 @@ import { SignIn } from './Components/SignIn'
 import { Signupfunc, Signinfunc,Updatedatafake,Readphim } from './Controller/ControllerKhoa'
 import { Booking } from './Components/Booking/Booking'
 import { films } from '../src/Res/datagia'
-console.log(films)
+// console.log(films)
 
 class App extends React.Component {
   constructor(props) {
@@ -51,13 +51,13 @@ class App extends React.Component {
     const password = this.state.Pass
     const uname = this.state.Username
     Signupfunc(email, password, uname)
-      .then((a) => a === undefined ? this.setState({ display: { SignIn: true } }):12)
+      .then((a) => a === undefined ? this.setState({ display: { SignIn: true } }) + alert("Sign Up Success"):alert(a))
 
   }
   onClickSignIn2() {
     const email = this.state.Email
     const password = this.state.Pass
-    Signinfunc(email, password).then((data) => this.setState({ display: { Home: true }, userdata: data }))
+    Signinfunc(email, password).then((data) => data[0] === " " ? alert(data) : this.setState({ display: { Home: true }, userdata: data }) + alert("Welcome "+ data.uname))
   }
   onClickBook(index) {
 
