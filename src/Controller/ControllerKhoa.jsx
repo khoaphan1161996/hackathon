@@ -27,6 +27,10 @@ export function Signinfunc(email, password) {
         })
         .catch((error) => {
             var errorCode = error.code;
+            errorCode = errorCode.replace("auth/", "");
+            if(errorCode=="invalid-email"){
+                errorCode = "invalid-email, must include @ gmail.com"
+            }
             return " " + errorCode
         });
 }
@@ -58,8 +62,13 @@ export function Signupfunc(email, password, uname) {
         .then((uid) => addData(uid, uname))
         .catch((error) => {
             var errorCode = error.code;
-            // ..
-            console.log(errorCode)
+            errorCode = errorCode.replace("auth/", "");
+            if(errorCode=="invalid-email"){
+                errorCode = "invalid-email, must include @ gmail.com"
+            }
+            else if(errorCode=="weak-password"){
+                errorCode = "weak-password, please over 6 characters    "
+            }
             return errorCode
         });
 
@@ -189,4 +198,11 @@ export function Signout (){
       }).catch(function(error) {
           console.log("An error happened.")
       });
+}
+
+export function UsercurrentHello() {
+    let user = firebase.auth().currentUser;
+if (user) {
+  return user.uname
+}
 }

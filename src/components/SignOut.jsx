@@ -9,7 +9,8 @@ export class SignOut extends React.Component {
     render(){
       return (
         <div className="Signout">
-            <button  onClick={this.props.onClickSignOut}>SignOut</button>
+              <h1>{this.props.Hello}</h1>
+              <button  onClick={this.props.onClickSignOut}>SignOut</button>
         </div>
       );
     }

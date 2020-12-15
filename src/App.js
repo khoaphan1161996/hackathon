@@ -6,7 +6,7 @@ import { Show } from './Components/Show'
 import { SignUp } from './Components/SignUp'
 import { SignIn } from './Components/SignIn'
 import {SignOut} from './Components/SignOut'
-import { Signupfunc, Signinfunc, Updatedatafake, Readphim, Usercurrent, Signout } from './Controller/ControllerKhoa'
+import { Signupfunc, Signinfunc, Updatedatafake, Readphim, Usercurrent, Signout,UsercurrentHello } from './Controller/ControllerKhoa'
 import { Booking } from './Components/Booking/Booking'
 import { films } from '../src/Res/datagia'
 // console.log(films)
@@ -66,11 +66,14 @@ class App extends React.Component {
     if (Usercurrent()) {
       this.setState({ display: { Booking: true,SignOut:true }, indexphim: index })
     }
-    else this.setState({ display: { SignIn: true } })
+    else this.setState({ display: { SignIn: true, Sign:true } })
   }
   Quit(){
     Signout()
     this.setState({ display: { SignIn: true,Sign:true }})
+  }
+  Hello(){
+    this.setState({Hello:UsercurrentHello()})
   }
 
   render() {
@@ -80,7 +83,7 @@ class App extends React.Component {
         {this.state.display.Sign && <Sign onClickSignUp={this.onClickSignUp} onClickSignIn={this.onClickSignIn} />}
         {this.state.display.SignUp && <SignUp onChangeUsername={(e) => this.handleonChange(e, "Username")} onChangeEmail={(e) => this.handleonChange(e, "Email")} onChangePass={(e) => this.handleonChange(e, "Pass")} onClickSign={this.onClickSignUp2} />}
         {this.state.display.SignIn && <SignIn onChangeEmail={(e) => this.handleonChange(e, "Email")} onChangePass={(e) => this.handleonChange(e, "Pass")} onClick={this.onClickSignIn2} />}
-        {this.state.display.SignOut && <SignOut onClickSignOut={this.Quit}/>}
+        {this.state.display.SignOut && <SignOut onClickSignOut={this.Quit} Hello={this.state.Hello}/>}
         {this.state.display.Home && <div className="Shows">
           {this.state.film.map((film, ind) => <Show {...film} key={ind} onClickBook={() => this.onClickBook(ind)} />)}
 
