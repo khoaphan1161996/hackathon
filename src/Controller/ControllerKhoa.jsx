@@ -25,6 +25,10 @@ export function Signinfunc(email, password) {
         .then((uid) => {
             return readData(uid)
         })
+        .catch((error) => {
+            var errorCode = error.code;
+            return " " + errorCode
+        });
 }
 function readData(uid) {
     let docRef = db.collection("users").doc(uid);
@@ -106,7 +110,7 @@ export function Readphim(res, res2, Callback) {
                 // doc.data() is never undefined for query doc snapshots
                 res.push(doc.data());
                 res2.push(doc.id)
-                console.log(doc.id)
+                // console.log(doc.id)
             });
         }).then(() => Callback(res, res2))
         .catch(function (error) {
