@@ -172,3 +172,21 @@ export function ChangestatusUser2(iduser, data) {
             console.error("Error updating document: ", error);
         });
 }
+
+export function Usercurrent (){
+    console.log("ASd")
+let user = firebase.auth().currentUser;
+
+if (user) {
+  return true
+} else {
+  return false
+}
+}
+export function Signout (){
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+}
