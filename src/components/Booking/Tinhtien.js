@@ -10,7 +10,7 @@ export function Tinhtien(props) {
             <div className="Tinhtien">
                 <p>Number of seats selected: {`${props.soghe}`}</p>
                 <p>Total amount: {props.thanhtien === undefined ? 0 : `${props.thanhtien.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}`} Đ</p>
-                {props.status && <p>Đã đặt thành công</p>}
+                {props.status && <p className="booksucces">Book Success</p>}
             </div>
 
             <button onClick={props.onClick}>Book tickets</button>
