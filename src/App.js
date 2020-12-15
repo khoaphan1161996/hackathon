@@ -5,11 +5,12 @@ import { Sign } from './Components/Sign'
 import { Show } from './Components/Show'
 import { SignUp } from './Components/SignUp'
 import { SignIn } from './Components/SignIn'
-import {SignOut} from './Components/SignOut'
+import { SignOut } from './Components/SignOut'
 import { Signupfunc, Signinfunc, Updatedatafake, Readphim, Usercurrent, Signout } from './Controller/ControllerKhoa'
 import { Booking } from './Components/Booking/Booking'
 import { films } from '../src/Res/datagia'
 // console.log(films)
+var check = ""
 
 class App extends React.Component {
   constructor(props) {
@@ -43,44 +44,45 @@ class App extends React.Component {
     // console.log(this.state)
   }
   onClickSignUp() {
-    this.setState({ display: { SignUp: true,Sign:true } })
+    this.setState({ display: { SignUp: true, Sign: true } })
   }
 
   onClickSignIn() {
-    this.setState({ display: { SignIn: true,Sign:true } })
+    this.setState({ display: { SignIn: true, Sign: true } })
   }
   onClickSignUp2() {
     const email = this.state.Email
     const password = this.state.Pass
     const uname = this.state.Username
     Signupfunc(email, password, uname)
-      .then((a) => a === undefined ? this.setState({ display: { SignIn: true,Sign:true } }) + alert("Sign Up Success") : alert(a))
+      .then((a) => a === undefined ? this.setState({ display: { SignIn: true, Sign: true } }) + alert("Sign Up Success") : alert(a))
 
   }
   onClickSignIn2() {
     const email = this.state.Email
     const password = this.state.Pass
-    Signinfunc(email, password).then((data) => data[0] === " " ? alert(data) : this.setState({ display: { Home: true,SignOut:true }, userdata: data }) + alert("Welcome " + data.uname))
+    Signinfunc(email, password).then((data) => data[0] === " " ? alert(data) : this.setState({ display: { Home: true, SignOut: true }, userdata: data }) + alert("Welcome " + data.uname))
   }
   onClickBook(index) {
     if (Usercurrent()) {
-      this.setState({ display: { Booking: true,SignOut:true }, indexphim: index })
+      this.setState({ display: { Booking: true, SignOut: true }, indexphim: index })
     }
-    else this.setState({ display: { SignIn: true } })
+    else this.setState({ display: { SignIn: true } }) 
+
   }
-  Quit(){
+  Quit() {
     Signout()
-    this.setState({ display: { SignIn: true,Sign:true }})
+    this.setState({ display: { SignIn: true, Sign: true } })
   }
 
   render() {
     return (
       <div className="App">
-        <Header onClickhome={() => { this.setState({ display: { Home: true,Sign:true } }) }} />
+        <Header onClickhome={() => { this.setState({ display: { Home: true, Sign: true } }) }} />
         {this.state.display.Sign && <Sign onClickSignUp={this.onClickSignUp} onClickSignIn={this.onClickSignIn} />}
         {this.state.display.SignUp && <SignUp onChangeUsername={(e) => this.handleonChange(e, "Username")} onChangeEmail={(e) => this.handleonChange(e, "Email")} onChangePass={(e) => this.handleonChange(e, "Pass")} onClickSign={this.onClickSignUp2} />}
         {this.state.display.SignIn && <SignIn onChangeEmail={(e) => this.handleonChange(e, "Email")} onChangePass={(e) => this.handleonChange(e, "Pass")} onClick={this.onClickSignIn2} />}
-        {this.state.display.SignOut && <SignOut onClickSignOut={this.Quit}/>}
+        {this.state.display.SignOut && <SignOut onClickSignOut={this.Quit} />}
         {this.state.display.Home && <div className="Shows">
           {this.state.film.map((film, ind) => <Show {...film} key={ind} onClickBook={() => this.onClickBook(ind)} />)}
 

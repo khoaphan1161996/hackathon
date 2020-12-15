@@ -27,7 +27,10 @@ export function Signinfunc(email, password) {
         })
         .catch((error) => {
             var errorCode = error.code;
-            return " " + errorCode
+            if(error.code="auth/invalid-email"){return " Invailid email. Please check your email"}
+            else if(error.code="auth/user-not-found"){return ` Can't find this email`} 
+            else if(error.code="auth/wrong-password"){return ` Your email or password is wrong`}
+           
         });
 }
 function readData(uid) {
@@ -174,14 +177,17 @@ export function ChangestatusUser2(iduser, data) {
 }
 
 export function Usercurrent (){
-    console.log("ASd")
+    
 let user = firebase.auth().currentUser;
+console.log(user)
 
-if (user) {
-  return true
-} else {
-  return false
-}
+// firebase.auth().onAuthStateChanged(function(user) {
+ if(user){
+     console.log(true)
+     return true
+ }
+ else   console.log(false); return false
+//   });
 }
 export function Signout (){
     firebase.auth().signOut().then(function() {
