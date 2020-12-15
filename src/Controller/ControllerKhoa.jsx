@@ -62,7 +62,7 @@ export function Signupfunc(email, password, uname) {
 }
 function addData(uid, uname) {
     db.collection("users").doc(`${uid}`).set({
-        uid:uid,
+        uid: uid,
         uname: uname,
         choosing: { tenphim: "", seat: [] }
     })
@@ -75,16 +75,18 @@ function addData(uid, uname) {
 }
 
 export function Updatedatafake() {
-    let todoref = db.collection("Dataphim").doc(`123`);
-    return todoref.update({
-        ava: "https://galaxycine.vn/media/2020/11/24/450-mom_1606210227972.jpg",
-        name: "DORAEMON: NOBITA'S NEW DINOSAUR",
-        time: "110 minute",
-        point: 8.9,
+    let todoref = db.collection("Dataphim");
+    return todoref.add({
+        ava: "https://galaxycine.vn/media/2020/12/10/1350x900_1607592886042.jpg",
+        name: "DEMON SLAYER THE MOVIE: MUGEN TRAIN",
+        time: "117 minute",
+        point: 9.2,
         seats: {
-            line1: [{ seat: "A1", status: "choosed" }, { seat: "A2", status: "none" }, { seat: "A3", status: "none" }, { seat: "A4", status: "choosing" }, { seat: "A5", status: "none" }, { seat: "A6", status: "none" }, { seat: "A7", status: "none" }],
-            line2: [{ seat: "A1", status: "choosed" }, { seat: "A2", status: "none" }, { seat: "A3", status: "none" }, { seat: "A4", status: "choosing" }, { seat: "A5", status: "none" }, { seat: "A6", status: "none" }, { seat: "A7", status: "none" }],
-            line3: [{ seat: "A1", status: "choosed" }, { seat: "A2", status: "none" }, { seat: "A3", status: "none" }, { seat: "A4", status: "choosing" }, { seat: "A5", status: "none" }, { seat: "A6", status: "none" }, { seat: "A7", status: "none" }],
+            line1: [{ seat: "A1", status: "none" }, { seat: "A2", status: "none" }, { seat: "A3", status: "none" }, { seat: "A4", status: "none" }, { seat: "A5", status: "none" }, { seat: "A6", status: "none" }, { seat: "A7", status: "none" }, { seat: "A8", status: "none" }, { seat: "A9", status: "none" }, { seat: "A10", status: "none" }, { seat: "A11", status: "none" }, { seat: "A12", status: "none" }],
+            line2: [{ seat: "B1", status: "none" }, { seat: "B2", status: "none" }, { seat: "B3", status: "none" }, { seat: "B4", status: "none" }, { seat: "B5", status: "none" }, { seat: "B6", status: "none" }, { seat: "B7", status: "none" }, { seat: "B8", status: "none" }, { seat: "B9", status: "none" }, { seat: "B10", status: "none" }, { seat: "B11", status: "none" }, { seat: "B12", status: "none" }],
+            line3: [{ seat: "C1", status: "none" }, { seat: "C2", status: "none" }, { seat: "C3", status: "none" }, { seat: "C4", status: "none" }, { seat: "C5", status: "none" }, { seat: "C6", status: "none" }, { seat: "C7", status: "none" }, { seat: "C8", status: "none" }, { seat: "C9", status: "none" }, { seat: "C10", status: "none" }, { seat: "C11", status: "none" }, { seat: "C12", status: "none" }],
+            line4: [{ seat: "D1", status: "none" }, { seat: "D2", status: "none" }, { seat: "D3", status: "none" }, { seat: "D4", status: "none" }, { seat: "D5", status: "none" }, { seat: "D6", status: "none" }, { seat: "D7", status: "none" }, { seat: "D8", status: "none" }, { seat: "D9", status: "none" }, { seat: "D10", status: "none" }, { seat: "D11", status: "none" }, { seat: "D12", status: "none" }],
+            line5: [{ seat: "E1", status: "none" }, { seat: "E2", status: "none" }, { seat: "E3", status: "none" }, { seat: "E4", status: "none" }, { seat: "E5", status: "none" }, { seat: "E6", status: "none" }, { seat: "E7", status: "none" }, { seat: "E8", status: "none" }, { seat: "E9", status: "none" }, { seat: "E10", status: "none" }, { seat: "E11", status: "none" }, { seat: "E12", status: "none" }],
         }
     })
         .then(function () {
@@ -95,7 +97,7 @@ export function Updatedatafake() {
         });
 }
 
-export function Readphim(res,res2,Callback) {
+export function Readphim(res, res2, Callback) {
     //    function subscribeConversation(conversationId, callback) 
     db.collection("Dataphim")
         .get()
@@ -106,32 +108,33 @@ export function Readphim(res,res2,Callback) {
                 res2.push(doc.id)
                 console.log(doc.id)
             });
-        }).then(()=>Callback(res,res2))
+        }).then(() => Callback(res, res2))
         .catch(function (error) {
             console.log("Error getting documents: ", error);
         });
 }
 
 
-export function Readseats (idphim,callback){
+export function Readseats(idphim, callback) {
     db.collection("Dataphim")
-    .doc(idphim)
-    // .where("name", "==", tenphim)
-    .onSnapshot(function(doc) {
-        // snapshot.docChanges().forEach(function(change) {
-           
+        .doc(idphim)
+        // .where("name", "==", tenphim)
+        .onSnapshot(function (doc) {
+            // snapshot.docChanges().forEach(function(change) {
+
             // console.log(doc.data())
             callback(doc.data())
         });
-    
+
 }
 
 //---------------------------------------------------------------------------------
-export function Changestatus(idphim,data){
+export function Changestatus(idphim, data) {
     let updatephim = db.collection("Dataphim").doc(`${idphim}`);
-    console.log(idphim,"and",data)
+  
     return updatephim.update({
-        seats: data})
+        seats: data
+    })
         .then(function (data) {
             console.log("Document successfully updated!");
         })
@@ -142,14 +145,24 @@ export function Changestatus(idphim,data){
 }
 
 //-----------------------USER UPDATE ----------------------------------------------
-export function ChangestatusUser (iduser,data){
+export function ChangestatusUser(iduser, data) {
     let updatephim = db.collection("users").doc(`${iduser}`);
-    console.log(iduser,"and",data)
+   
     return updatephim.update({
-        choosing: data})
-        .then(function (data) {
-            console.log("Document successfully updated!");
-        })
+        choosing: data
+    })
+
+        .catch(function (error) {
+            console.error("Error updating document: ", error);
+        });
+}
+export function ChangestatusUser2(iduser, data) {
+    let updatephim = db.collection("users").doc(`${iduser}`);
+    console.log(iduser, "and", data)
+    return updatephim.update({
+        booked: data
+    })
+
         .catch(function (error) {
             console.error("Error updating document: ", error);
         });

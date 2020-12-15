@@ -1,10 +1,10 @@
 import '../assets/css/Header.css'
 
-export function Header() {
+export function Header(props) {
     return (
         <div className="navbar">
             <img className="cgvlogo" src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo.png" href="#home" alt="logo"/>
-            <a href="https://www.cgv.vn/default/">Home</a>
+            <p onClick={props.onClickhome}>Home</p>
             <a href="https://www.cgv.vn/default/newsoffer">News</a>
             <div className="dropdown">
                 <button className="dropbtn">Films<i className="fa fa-caret-down"></i></button>
