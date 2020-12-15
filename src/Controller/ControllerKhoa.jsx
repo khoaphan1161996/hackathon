@@ -64,7 +64,8 @@ function addData(uid, uname) {
     db.collection("users").doc(`${uid}`).set({
         uid: uid,
         uname: uname,
-        choosing: { tenphim: "", seat: [] }
+        choosing: {},
+        booked: {}
     })
         .then(function () {
             console.log("Document successfully written!");
@@ -131,7 +132,7 @@ export function Readseats(idphim, callback) {
 //---------------------------------------------------------------------------------
 export function Changestatus(idphim, data) {
     let updatephim = db.collection("Dataphim").doc(`${idphim}`);
-  
+
     return updatephim.update({
         seats: data
     })
@@ -147,7 +148,7 @@ export function Changestatus(idphim, data) {
 //-----------------------USER UPDATE ----------------------------------------------
 export function ChangestatusUser(iduser, data) {
     let updatephim = db.collection("users").doc(`${iduser}`);
-   
+
     return updatephim.update({
         choosing: data
     })
