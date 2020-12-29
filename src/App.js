@@ -1,25 +1,89 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import { Header } from './components/Header'
+import { Show } from './components/Show'
+import { Finish } from './components/Finish'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      quiz: [],
+      point:0,
+    }
+    this.onClickfinish = this.onClickfinish.bind(this)
+  }
+
+  componentDidMount() {
+    const url = "https://opentdb.com/api.php?amount=5&category=21&difficulty=easy&type=multiple"
+    fetch(url)
+      .then((res) => res.json())
+      .then(data => {
+        let datas = data.results
+        // console.log(datas)
+        let quiz = []
+        for (let i = 0; i < datas.length; i++) {
+          quiz.push({
+            question: datas[i].question,
+            answer1: datas[i].incorrect_answers[0] ,
+            answer2: datas[i].incorrect_answers[1] ,
+            answer3: datas[i].incorrect_answers[2] ,
+            answer4: datas[i].correct_answer
+          })
+        }
+        this.setState({
+          quiz: quiz
+        })
+      })
+  }
+
+  onClickfinish() {
+    alert("Ban dat duoc so diem: "+this.state.point)
+    const url = "https://opentdb.com/api.php?amount=5&category=21&difficulty=easy&type=multiple"
+    fetch(url)
+      .then((res) => res.json())
+      .then(data => {
+        let datas = data.results
+        console.log(datas)
+        let quiz = []
+        for (let i = 0; i < datas.length; i++) {
+          quiz.push({
+            question: datas[i].question,
+            answer1: datas[i].incorrect_answers[0] ,
+            answer2: datas[i].incorrect_answers[1] ,
+            answer3: datas[i].incorrect_answers[2] ,
+            answer4: datas[i].correct_answer
+          })
+        }
+        this.setState({
+          quiz: quiz
+        })
+      })
+  }
+
+  onClickan(e,ind){
+    let point=this.state.point
+    console.log(e.target.innerText)
+    if(this.state.quiz[ind].answer4==e.target.innerText){
+      alert("Chinh xac ban duoc them 10 diem")
+      this.setState({point:point+10})
+    }
+    else{
+      alert("Sai roi khong duoc diem dau")
+    }
+    console.log(this.state.point)
+  }
+
+  render() {
+    return (
+      <div className="Quiz">
+        <Header  />
+        {this.state.quiz.map((quiz, ind) => <Show key={ind} {...quiz} onClickan={(e)=>this.onClickan(e,ind)} />)}
+        <Finish onClickfinish={this.onClickfinish} />
+      </div>
+    );
+  }
+
 }
 
 export default App;

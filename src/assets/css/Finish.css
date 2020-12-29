@@ -1,0 +1,23 @@
+button {
+    height: 60px;
+    width: 140px;
+    background: #f0ec10;
+    color: red;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 4px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.Finish {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

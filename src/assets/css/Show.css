@@ -1,0 +1,23 @@
+.qu {
+    /* font-weight: bolder; */
+    color: red;
+    font-size: 2rem;
+}
+
+.mid {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.an {
+    font-size: 1rem;
+}
+
+.Show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
