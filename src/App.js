@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   onClickfinish() {
-    alert("Ban dat duoc so diem: "+this.state.point)
+    alert("Chúc mừng bạn đạt được số điểm: "+this.state.point+" . Chúng ta chơi lại nhé.")
     const url = "https://opentdb.com/api.php?amount=5&category=21&difficulty=easy&type=multiple"
     fetch(url)
       .then((res) => res.json())
@@ -65,11 +65,11 @@ class App extends React.Component {
     let point=this.state.point
     console.log(e.target.innerText)
     if(this.state.quiz[ind].answer4==e.target.innerText){
-      alert("Chinh xac ban duoc them 10 diem")
+      alert("Câu trả lời chính xác, bạn được thêm 10 điểm")
       this.setState({point:point+10})
     }
     else{
-      alert("Sai roi khong duoc diem dau")
+      alert("Bạn trả lời sai rồi, không được tính điểm")
     }
     console.log(this.state.point)
   }
