@@ -23,6 +23,9 @@ export class Containseat extends React.Component {
         this.handleonClick = this.handleonClick.bind(this)
         this.handleonClickbook = this.handleonClickbook.bind(this)
     }
+    componentDidMount(){
+        console.log(this.state.seats)
+    }
     showSeat() {
         let res = []
         for (let i = 1; i < 6; i++) {
